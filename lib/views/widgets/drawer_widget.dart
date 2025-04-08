@@ -1,53 +1,70 @@
 import 'package:arshad_kk_portfolio/utils/colors.dart';
-import 'package:arshad_kk_portfolio/views/widgets/custom_container.dart';
-import 'package:arshad_kk_portfolio/views/widgets/custom_text.dart';
 import 'package:flutter/material.dart';
 
 class DrawerWidget extends StatelessWidget {
-  const DrawerWidget({super.key});
+  final Function(int) onSectionTap;
+
+  const DrawerWidget({super.key, required this.onSectionTap});
 
   @override
   Widget build(BuildContext context) {
-    final mediaQuery = MediaQuery.of(context);
-    final screenWidth = mediaQuery.size.width;
-    final screenHeight = mediaQuery.size.height;
-    return CustomContainer(
-      height: screenHeight,
-      width: screenWidth,
-      color: AppColors.backgroundColor,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
+    return Drawer(
+      backgroundColor: AppColors.backgroundColor,
+      child: ListView(
+        padding: EdgeInsets.zero,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: CustomText(
-              text: 'Home',
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: AppColors.cardColor,
+            ),
+            child: Text(
+              'Portfolio',
+              style: TextStyle(
+                color: AppColors.primaryColor,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
             ),
           ),
-          Divider(
-            height: 20,
-            color: AppColors.textColor,
+          ListTile(
+            title: const Text('About',
+                style: TextStyle(color: AppColors.textPrimaryColor)),
+            onTap: () {
+              Navigator.pop(context);
+              onSectionTap(0);
+            },
           ),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: CustomText(text: 'About'),
+          ListTile(
+            title: const Text('Skills',
+                style: TextStyle(color: AppColors.textPrimaryColor)),
+            onTap: () {
+              Navigator.pop(context);
+              onSectionTap(1);
+            },
           ),
-          Divider(
-            height: 20,
-            color: AppColors.textColor,
+          ListTile(
+            title: const Text('Projects',
+                style: TextStyle(color: AppColors.textPrimaryColor)),
+            onTap: () {
+              Navigator.pop(context);
+              onSectionTap(2);
+            },
           ),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: CustomText(text: 'Projects'),
+          ListTile(
+            title: const Text('Contact',
+                style: TextStyle(color: AppColors.textPrimaryColor)),
+            onTap: () {
+              Navigator.pop(context);
+              onSectionTap(3);
+            },
           ),
-          Divider(
-            height: 20,
-            color: AppColors.textColor,
-          ),
-          Padding(
-            padding: const EdgeInsets.all(18.0),
-            child: CustomText(text: 'Contact me'),
+          const Divider(color: AppColors.textSecondaryColor),
+          ListTile(
+            title: const Text('Resume',
+                style: TextStyle(color: AppColors.primaryColor)),
+            onTap: () {
+              // Download Resume Function
+            },
           ),
         ],
       ),

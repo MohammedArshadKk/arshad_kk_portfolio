@@ -20,12 +20,12 @@ class MyApp extends StatelessWidget {
       title: 'my portfolio',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
-          textTheme: GoogleFonts.robotoTextTheme().copyWith(
-            bodyLarge: TextStyle(color: AppColors.textColor),
-            bodyMedium: TextStyle(color: AppColors.textColor),
-            bodySmall: TextStyle(color: AppColors.textColor),
-            headlineLarge: TextStyle(color: AppColors.textColor),
-        ), 
+        //   textTheme: GoogleFonts.robotoTextTheme().copyWith(
+        //     bodyLarge: TextStyle(color: AppColors.textColor),
+        //     bodyMedium: TextStyle(color: AppColors.textColor),
+        //     bodySmall: TextStyle(color: AppColors.textColor),
+        //     headlineLarge: TextStyle(color: AppColors.textColor),
+        // ), 
           scaffoldBackgroundColor: AppColors.backgroundColor,
           appBarTheme: AppBarTheme(backgroundColor: AppColors.backgroundColor)),
       home: MainScreen(),
